@@ -1,5 +1,5 @@
 {
-  "name": "@banky/react-native-streamdown",
+  "name": "@0xbanky/react-native-streamdown",
   "version": "0.2.0",
   "description": "Streaming-ready Markdown for React Native, with GFM support (fork of react-native-streamdown)",
   "main": "./lib/module/index.js",

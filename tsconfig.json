@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@banky/react-native-streamdown": ["./src/index"]
+      "@0xbanky/react-native-streamdown": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

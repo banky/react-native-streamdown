@@ -15,7 +15,7 @@ import {
   Linking,
   Pressable,
 } from 'react-native';
-import { StreamdownText } from '@banky/react-native-streamdown';
+import { StreamdownText } from '@0xbanky/react-native-streamdown';
 import { sampleMarkdown, sampleGfmMarkdown } from './sampleMarkdown';
 
 const STREAMING_SPEED = 10;

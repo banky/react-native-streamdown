@@ -1,4 +1,4 @@
-# @banky/react-native-streamdown
+# @0xbanky/react-native-streamdown
 
 > Fork of [`react-native-streamdown`](https://github.com/software-mansion-labs/react-native-streamdown) with GitHub Flavored Markdown (GFM) support — tables, task lists, strikethrough, autolinks — via the `flavor` prop.
 >
@@ -22,7 +22,7 @@ It processes raw, incomplete markdown (as it streams token-by-token from an LLM)
 ## Installation
 
 ```sh
-yarn add @banky/react-native-streamdown
+yarn add @0xbanky/react-native-streamdown
 ```
 
 ### Peer dependencies
@@ -162,7 +162,7 @@ module.exports = config;
 ## Usage
 
 ```tsx
-import { StreamdownText } from '@banky/react-native-streamdown';
+import { StreamdownText } from '@0xbanky/react-native-streamdown';
 
 // markdown can be updated token-by-token as the LLM streams
 <StreamdownText markdown={partialMarkdown} />;
