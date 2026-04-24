@@ -1,3 +1,39 @@
+export const sampleGfmMarkdown = `# Trip Planning for Iceland
+
+A quick rundown with a **table**, a task list, and ~~outdated info~~ updated details.
+
+## Flight Options
+
+| Airline       | Route             | Duration | Price  |
+| ------------- | ----------------- | -------- | ------ |
+| Icelandair    | JFK → KEF         | 5h 40m   | $612   |
+| Play          | BOS → KEF         | 5h 15m   | $389   |
+| Delta         | JFK → KEF         | 5h 50m   | $704   |
+| United        | EWR → KEF         | 5h 35m   | $658   |
+
+## Pre-Trip Checklist
+
+- [x] Book flights
+- [x] Reserve rental car
+- [ ] Pack waterproof jacket
+- [ ] Download offline maps
+- [ ] ~~Buy travel adapter~~ already have one
+
+## Day-by-Day
+
+| Day | Location      | Highlight                |
+| --- | ------------- | ------------------------ |
+| 1   | Reykjavík     | Hallgrímskirkja + harbor |
+| 2   | Golden Circle | Geysir & Gullfoss        |
+| 3   | South Coast   | Reynisfjara black sand   |
+| 4   | Vík           | Glacier hike             |
+| 5   | Return        | Blue Lagoon → KEF        |
+
+More info at https://visiticeland.com — autolinks should render too.
+
+> Remember: the weather changes fast. Bring layers.
+`;
+
 export const sampleMarkdown = `# Black Holes
 
 Black holes are among the most **fascinating** and _mysterious_ objects in the universe.

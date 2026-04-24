@@ -1,7 +1,7 @@
 {
-  "name": "react-native-streamdown",
-  "version": "0.1.0",
-  "description": "Markdown Streaming ",
+  "name": "@banky/react-native-streamdown",
+  "version": "0.2.0",
+  "description": "Streaming-ready Markdown for React Native, with GFM support (fork of react-native-streamdown)",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
@@ -47,14 +47,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/software-mansion-labs/react-native-streamdown.git"
+    "url": "git+https://github.com/banky/react-native-streamdown.git"
   },
-  "author": "Gregory Moskaliuk <mosckalyuck@gmail.com> (https://github.com/hryhoriiK97)",
+  "author": "banky <badebajo@proton.me> (https://github.com/banky)",
+  "contributors": [
+    "Gregory Moskaliuk <mosckalyuck@gmail.com> (https://github.com/hryhoriiK97)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/software-mansion-labs/react-native-streamdown/issues"
+    "url": "https://github.com/banky/react-native-streamdown/issues"
   },
-  "homepage": "https://github.com/software-mansion-labs/react-native-streamdown#readme",
+  "homepage": "https://github.com/banky/react-native-streamdown#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

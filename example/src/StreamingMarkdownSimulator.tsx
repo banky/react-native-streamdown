@@ -15,26 +15,48 @@ import {
   Linking,
   Pressable,
 } from 'react-native';
-import { StreamdownText } from 'react-native-streamdown';
-import { sampleMarkdown } from './sampleMarkdown';
+import { StreamdownText } from '@banky/react-native-streamdown';
+import { sampleMarkdown, sampleGfmMarkdown } from './sampleMarkdown';
 
 const STREAMING_SPEED = 10;
 const STREAMING_INTERVAL = 50;
 
+type SampleKey = 'commonmark' | 'gfm';
+
+const SAMPLES: Record<
+  SampleKey,
+  { label: string; source: string; flavor: 'commonmark' | 'github' }
+> = {
+  commonmark: {
+    label: 'CommonMark',
+    source: sampleMarkdown,
+    flavor: 'commonmark',
+  },
+  gfm: {
+    label: 'GFM (table)',
+    source: sampleGfmMarkdown,
+    flavor: 'github',
+  },
+};
+
 export default function StreamingMarkdownSimulator() {
+  const [sampleKey, setSampleKey] = useState<SampleKey>('commonmark');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isStreaming, setIsStreaming] = useState(false);
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
 
+  const activeSample = SAMPLES[sampleKey];
+  const sourceLength = activeSample.source.length;
+
   const partialMarkdown = useMemo(
-    () => sampleMarkdown.slice(0, currentIndex),
-    [currentIndex]
+    () => activeSample.source.slice(0, currentIndex),
+    [activeSample.source, currentIndex]
   );
   const progress = useMemo(
-    () => (currentIndex / sampleMarkdown.length) * 100,
-    [currentIndex]
+    () => (currentIndex / sourceLength) * 100,
+    [currentIndex, sourceLength]
   );
 
   const stopStreaming = useCallback(() => {
@@ -49,20 +71,30 @@ export default function StreamingMarkdownSimulator() {
 
   const startStreaming = useCallback(() => {
     if (isStreaming) return;
-    if (currentIndex >= sampleMarkdown.length) setCurrentIndex(0);
+    if (currentIndex >= sourceLength) setCurrentIndex(0);
 
     setIsStreaming(true);
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => {
         const next = prev + STREAMING_SPEED;
-        if (next >= sampleMarkdown.length) {
+        if (next >= sourceLength) {
           stopStreaming();
-          return sampleMarkdown.length;
+          return sourceLength;
         }
         return next;
       });
     }, STREAMING_INTERVAL);
-  }, [isStreaming, currentIndex, stopStreaming]);
+  }, [isStreaming, currentIndex, sourceLength, stopStreaming]);
+
+  const selectSample = useCallback(
+    (key: SampleKey) => {
+      if (key === sampleKey) return;
+      stopStreaming();
+      setCurrentIndex(0);
+      setSampleKey(key);
+    },
+    [sampleKey, stopStreaming]
+  );
 
   const handleLinkPress = (url: string) => {
     Alert.alert('Open Link?', url, [
@@ -76,13 +108,35 @@ export default function StreamingMarkdownSimulator() {
   return (
     <View style={styles.container}>
       <View style={styles.controls}>
+        <View style={styles.sampleRow}>
+          {(Object.keys(SAMPLES) as SampleKey[]).map((key) => {
+            const isActive = key === sampleKey;
+            return (
+              <Pressable
+                key={key}
+                style={[styles.sampleChip, isActive && styles.sampleChipActive]}
+                onPress={() => selectSample(key)}
+                disabled={isStreaming}
+              >
+                <Text
+                  style={[
+                    styles.sampleChipText,
+                    isActive && styles.sampleChipTextActive,
+                  ]}
+                >
+                  {SAMPLES[key].label}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+
         <View style={styles.progressContainer}>
           <View style={styles.progressBar}>
             <View style={[styles.progressFill, { width: `${progress}%` }]} />
           </View>
           <Text style={styles.progressText}>
-            {progress.toFixed(1)}% — {currentIndex} / {sampleMarkdown.length}{' '}
-            chars
+            {progress.toFixed(1)}% — {currentIndex} / {sourceLength} chars
           </Text>
         </View>
 
@@ -112,6 +166,7 @@ export default function StreamingMarkdownSimulator() {
       >
         <StreamdownText
           markdown={partialMarkdown}
+          flavor={activeSample.flavor}
           onLinkPress={(e) => handleLinkPress(e.url)}
         />
         {isStreaming && <Text style={styles.streamingDot}>● Streaming…</Text>}
@@ -142,6 +197,22 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
+  sampleRow: { flexDirection: 'row', gap: 8, marginBottom: 10 },
+  sampleChip: {
+    flex: 1,
+    paddingVertical: 8,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#bbb',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+  sampleChipActive: {
+    backgroundColor: '#2196F3',
+    borderColor: '#2196F3',
+  },
+  sampleChipText: { fontSize: 12, fontWeight: '600', color: '#444' },
+  sampleChipTextActive: { color: '#fff' },
   progressContainer: { marginBottom: 10 },
   progressBar: {
     height: 6,

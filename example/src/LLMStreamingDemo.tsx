@@ -16,7 +16,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { StreamdownText } from 'react-native-streamdown';
+import { StreamdownText } from '@banky/react-native-streamdown';
 import { streamOpenAIResponse } from './openAIStream';
 
 const BASE_SYSTEM_PROMPT = [

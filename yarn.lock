@@ -1582,6 +1582,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@banky/react-native-streamdown@npm:*, @banky/react-native-streamdown@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@banky/react-native-streamdown@workspace:."
+  dependencies:
+    "@commitlint/config-conventional": "npm:^19.8.1"
+    "@eslint/compat": "npm:^1.3.2"
+    "@eslint/eslintrc": "npm:^3.3.1"
+    "@eslint/js": "npm:^9.35.0"
+    "@react-native/babel-preset": "npm:0.83.0"
+    "@react-native/eslint-config": "npm:0.83.0"
+    "@release-it/conventional-changelog": "npm:^10.0.1"
+    "@types/jest": "npm:^29.5.14"
+    "@types/react": "npm:^19.1.12"
+    commitlint: "npm:^19.8.1"
+    del-cli: "npm:^6.0.0"
+    eslint: "npm:^9.35.0"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-prettier: "npm:^5.5.4"
+    jest: "npm:^29.7.0"
+    lefthook: "npm:^2.0.3"
+    prettier: "npm:^2.8.8"
+    react: "npm:19.2.0"
+    react-native: "npm:0.83.2"
+    react-native-builder-bob: "npm:^0.40.18"
+    react-native-enriched-markdown: "npm:0.4.0"
+    react-native-sse: "npm:1.2.1"
+    react-native-worklets: "npm:0.8.0-rc.0"
+    release-it: "npm:^19.0.4"
+    remend: "npm:1.2.2"
+    turbo: "npm:^2.5.6"
+    typescript: "npm:^5.9.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-enriched-markdown: 0.4.0
+    react-native-worklets: 0.8.0-rc.0
+    remend: 1.2.2
+  languageName: unknown
+  linkType: soft
+
 "@bcoe/v8-coverage@npm:^0.2.3":
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
@@ -5639,6 +5679,13 @@ __metadata:
   dependencies:
     is-obj: "npm:^2.0.0"
   checksum: 10c0/93f0d343ef87fe8869320e62f2459f7e70f49c6098d948cc47e060f4a3f827d0ad61e83cb82f2bd90cd5b9571b8d334289978a43c0f98fea4f0e99ee8faa0599
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.4.5":
+  version: 16.6.1
+  resolution: "dotenv@npm:16.6.1"
+  checksum: 10c0/15ce56608326ea0d1d9414a5c8ee6dcf0fffc79d2c16422b4ac2268e7e2d76ff5a572d37ffe747c377de12005f14b3cc22361e79fc7f1061cce81f77d2c973dc
   languageName: node
   linkType: hard
 
@@ -10649,6 +10696,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-dotenv@npm:^3.4.11":
+  version: 3.4.11
+  resolution: "react-native-dotenv@npm:3.4.11"
+  dependencies:
+    dotenv: "npm:^16.4.5"
+  peerDependencies:
+    "@babel/runtime": ^7.20.6
+  checksum: 10c0/9ed4a37fb59030706d17a1cc49d05af9d8fc57dcb2ef97e122b844f3ab6f6331ebc089afac559fe5bddf37806aa282b4118005f1b27aae5e37fdc3fc8bd7625c
+  languageName: node
+  linkType: hard
+
 "react-native-enriched-markdown@npm:0.4.0":
   version: 0.4.0
   resolution: "react-native-enriched-markdown@npm:0.4.0"
@@ -10693,6 +10751,7 @@ __metadata:
     "@babel/core": "npm:^7.25.2"
     "@babel/preset-env": "npm:^7.25.3"
     "@babel/runtime": "npm:^7.25.0"
+    "@banky/react-native-streamdown": "npm:*"
     "@react-native-community/cli": "npm:20.0.0"
     "@react-native-community/cli-platform-android": "npm:20.0.0"
     "@react-native-community/cli-platform-ios": "npm:20.0.0"
@@ -10703,52 +10762,12 @@ __metadata:
     react: "npm:19.2.0"
     react-native: "npm:0.83.0"
     react-native-builder-bob: "npm:^0.40.18"
+    react-native-dotenv: "npm:^3.4.11"
     react-native-enriched-markdown: "npm:0.4.0"
     react-native-monorepo-config: "npm:^0.3.3"
     react-native-safe-area-context: "npm:^5.7.0"
-    react-native-streamdown: "npm:*"
     react-native-worklets: "npm:0.8.0-rc.0"
     remend: "npm:1.2.2"
-  languageName: unknown
-  linkType: soft
-
-"react-native-streamdown@npm:*, react-native-streamdown@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "react-native-streamdown@workspace:."
-  dependencies:
-    "@commitlint/config-conventional": "npm:^19.8.1"
-    "@eslint/compat": "npm:^1.3.2"
-    "@eslint/eslintrc": "npm:^3.3.1"
-    "@eslint/js": "npm:^9.35.0"
-    "@react-native/babel-preset": "npm:0.83.0"
-    "@react-native/eslint-config": "npm:0.83.0"
-    "@release-it/conventional-changelog": "npm:^10.0.1"
-    "@types/jest": "npm:^29.5.14"
-    "@types/react": "npm:^19.1.12"
-    commitlint: "npm:^19.8.1"
-    del-cli: "npm:^6.0.0"
-    eslint: "npm:^9.35.0"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-plugin-prettier: "npm:^5.5.4"
-    jest: "npm:^29.7.0"
-    lefthook: "npm:^2.0.3"
-    prettier: "npm:^2.8.8"
-    react: "npm:19.2.0"
-    react-native: "npm:0.83.2"
-    react-native-builder-bob: "npm:^0.40.18"
-    react-native-enriched-markdown: "npm:0.4.0"
-    react-native-sse: "npm:1.2.1"
-    react-native-worklets: "npm:0.8.0-rc.0"
-    release-it: "npm:^19.0.4"
-    remend: "npm:1.2.2"
-    turbo: "npm:^2.5.6"
-    typescript: "npm:^5.9.2"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-    react-native-enriched-markdown: 0.4.0
-    react-native-worklets: 0.8.0-rc.0
-    remend: 1.2.2
   languageName: unknown
   linkType: soft
 

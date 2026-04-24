@@ -1,6 +1,6 @@
 import EventSource from 'react-native-sse';
+import { OPENAI_API_KEY } from '@env';
 
-const OPENAI_API_KEY = 'API_KEY';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 
 interface ChatMessage {
@@ -15,6 +15,13 @@ export function streamOpenAIResponse(
   onError: (message: string) => void,
   systemPrompt?: string
 ): void {
+  if (!OPENAI_API_KEY) {
+    onError(
+      'Missing OPENAI_API_KEY. Copy example/.env.example to example/.env and set your key.'
+    );
+    return;
+  }
+
   const messages: ChatMessage[] = [
     ...(systemPrompt
       ? [{ role: 'system' as const, content: systemPrompt }]
